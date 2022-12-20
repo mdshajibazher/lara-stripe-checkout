@@ -19,9 +19,8 @@ use Illuminate\Support\Facades\Route;
 //});
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('buy/{product_id}', [App\Http\Controllers\HomeController::class, 'buy'])->name('buy');
-
-Auth::routes();
-
+Route::post('confirm', [App\Http\Controllers\HomeController::class, 'confirm'])->name('confirm');
+Route::get('checkout', [App\Http\Controllers\HomeController::class, 'checkout'])->name('checkout');
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
