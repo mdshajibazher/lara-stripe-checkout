@@ -30,4 +30,9 @@ return [
         'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
     ],
 
+    'stripe' => [
+        'publishable_key' => env('STRIPE_PUBLISHABLE_KEY','pk_test_51IgoXqAC539xA1iVOyvQkAWjjB0xukmltotsYCf49zjAG5opOLrnzVppJxdKBh89N6ThW9C8ZLtELW1JkD3qPH4k00Bim4hjsf'),
+        'secret_key' => env('STRIPE_SECRET_KEY',''),
+    ]
+
 ];
