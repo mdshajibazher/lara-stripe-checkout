@@ -24,6 +24,8 @@
                                    {{session('error')}}
                                </div>
                             @endif
+
+                            <div class="alert alert-danger mt-4 d-none" id="card-error"></div>
                         </form>
 
                     </div>
@@ -54,7 +56,9 @@
                 })
                 .then(function(result) {
                    if(result.error){
-
+                        $("#card-error").text(result.error.message)
+                            .removeClass('d-none');
+                       $("#payment-button").attr('disabled',false);
                    }else{
                         $("#payment_method").val(result.setupIntent.payment_method);
                         $("#payment-form").submit();
