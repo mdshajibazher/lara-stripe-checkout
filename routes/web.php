@@ -23,6 +23,8 @@ Route::post('confirm', [App\Http\Controllers\HomeController::class, 'confirm'])-
 Route::get('checkout', [App\Http\Controllers\HomeController::class, 'checkout'])->name('checkout');
 Route::post('pay', [App\Http\Controllers\HomeController::class, 'pay'])->name('pay');
 Route::get('success', [App\Http\Controllers\HomeController::class, 'success'])->name('success');
+Route::stripeWebhooks('webhook');
+
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

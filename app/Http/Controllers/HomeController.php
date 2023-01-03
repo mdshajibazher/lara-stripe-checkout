@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Order;
 use App\Models\Product;
 use App\Models\User;
+use App\Notifications\SendOrderNotification;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 
@@ -71,6 +72,7 @@ class HomeController extends Controller
             $user->updateDefaultPaymentMethod($paymentMethod);
             $user->charge($order->price,$paymentMethod);
             $order->update(['paid_at' => now()]);
+
         }catch (\Exception $exception){
             return redirect()->back()->with('error',$exception->getMessage());
         }
